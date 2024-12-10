@@ -1,13 +1,13 @@
+# How to Update a Vite Project and Its Packages
 
-To update your Vite project and its packages, follow these steps:
-1. Update Vite to the Latest Version
+Follow these steps to update your Vite project and its dependencies.
+
+## 1. Update Vite to the Latest Version
+
 Run the following command to check and update Vite to the latest version:
 
-bash
+```bash
 npm install vite@latest
-
-
-
 
 2. Update All Dependencies
 You can update all the dependencies in your project using npm-check-updates:
