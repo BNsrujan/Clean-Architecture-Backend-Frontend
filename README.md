@@ -7,41 +7,64 @@ This project follows a modern full-stack architecture with a clear separation be
 ```
 ├── Frountend-vite/          # Frontend application
 │   ├── src/                # Source code
-│   ├── public/             # Static assets
-│   └── ...config files     # Configuration files
+│   │   ├── app/           # Main application code
+│   │   ├── assets/        # Static assets (images, fonts, etc.)
+│   │   ├── components/    # Reusable UI components
+│   │   ├── hooks/         # Custom React hooks
+│   │   ├── services/      # API services and external integrations
+│   │   ├── store/         # State management (Redux/Context)
+│   │   ├── styles/        # Global styles and CSS modules
+│   │   └── utils/         # Utility functions and helpers
+│   ├── public/            # Public static files
+│   └── ...config files    # Configuration files
 │
 └── Backend-node-mongo/      # Backend application
     ├── src/                # Source code
-    ├── Public/             # Static files
-    └── ...config files     # Configuration files
+    │   ├── controllers/    # Request handlers and business logic
+    │   ├── db/            # Database configuration and models
+    │   ├── middlewares/   # Express middlewares
+    │   ├── models/        # MongoDB schemas and models
+    │   ├── routes/        # API route definitions
+    │   └── utils/         # Utility functions and helpers
+    ├── Public/            # Static files served by the backend
+    └── ...config files    # Configuration files
 ```
 
-## Frontend Architecture (Vite + TypeScript)
+## Detailed Folder Structure
 
-The frontend is built using:
+### Frontend Structure (`Frountend-vite/src/`)
+
+- **app/**: Contains the main application code, including pages and layouts
+- **assets/**: Stores static files like images, fonts, and other media
+- **components/**: Reusable UI components that can be shared across the application
+- **hooks/**: Custom React hooks for shared logic and state management
+- **services/**: API integration and external service connections
+- **store/**: State management logic (Redux store, context providers)
+- **styles/**: Global styles, CSS modules, and theme configurations
+- **utils/**: Helper functions, constants, and utility methods
+
+### Backend Structure (`Backend-node-mongo/src/`)
+
+- **controllers/**: Contains the business logic and request handlers
+- **db/**: Database configuration, connection setup, and initialization
+- **middlewares/**: Express middleware functions (auth, validation, etc.)
+- **models/**: MongoDB schemas and data models
+- **routes/**: API route definitions and endpoint configurations
+- **utils/**: Helper functions and utility methods
+- **Public/**: Static files served directly by the backend server
+
+## Technology Stack
+
+### Frontend (Vite + TypeScript)
 - **Vite**: A modern build tool for faster development
 - **TypeScript**: For type-safe code
 - **Tailwind CSS**: For styling
 - **ESLint & Prettier**: For code quality and formatting
 
-### Key Features
-- Modern development environment with hot module replacement
-- Type-safe development with TypeScript
-- Utility-first CSS framework with Tailwind
-- Code quality tools (ESLint, Prettier)
-
-## Backend Architecture (Node.js + MongoDB)
-
-The backend is built using:
+### Backend (Node.js + MongoDB)
 - **Node.js**: JavaScript runtime
 - **MongoDB**: NoSQL database
-- **Express.js**: Web framework (implied by Node.js backend)
-
-### Key Features
-- RESTful API architecture
-- MongoDB database integration
-- Environment configuration support
-- Code formatting with Prettier
+- **Express.js**: Web framework
 
 ## Development Setup
 
@@ -76,64 +99,69 @@ The backend is built using:
    npm start
    ```
 
+## Dependency Management
+
+### Updating Dependencies
+1. Install npm-check-updates globally:
+   ```bash
+   npm install -g npm-check-updates
+   ```
+2. Check for outdated dependencies:
+   ```bash
+   ncu
+   ```
+3. Update package.json with latest versions:
+   ```bash
+   ncu -u
+   ```
+4. Install updated dependencies:
+   ```bash
+   npm install
+   ```
+
+### Handling Dependency Conflicts
+If you encounter dependency conflicts (e.g., with React 19), you can use one of these approaches:
+
+1. Force install (use with caution):
+   ```bash
+   npm install --force
+   ```
+2. Use legacy peer dependencies:
+   ```bash
+   npm install --legacy-peer-deps
+   ```
+
+> **Note**: Using `--force` or `--legacy-peer-deps` might cause runtime issues. Use these options only when necessary and test thoroughly.
+
 ## Development Guidelines
 
-1. **Code Style**
-   - Follow the established ESLint and Prettier configurations
-   - Maintain consistent code formatting across the project
+### Code Style
+- Follow the established ESLint and Prettier configurations
+- Maintain consistent code formatting across the project
 
-2. **TypeScript Usage**
-   - Use TypeScript for type safety
-   - Define interfaces for data structures
-   - Avoid using `any` type when possible
+### TypeScript Usage
+- Use TypeScript for type safety
+- Define interfaces for data structures
+- Avoid using `any` type when possible
 
-3. **API Development**
-   - Follow RESTful conventions
-   - Document API endpoints
-   - Implement proper error handling
+### API Development
+- Follow RESTful conventions
+- Document API endpoints
+- Implement proper error handling
 
-4. **Database**
-   - Follow MongoDB best practices
-   - Implement proper data validation
-   - Use indexes for better performance
+### Database
+- Follow MongoDB best practices
+- Implement proper data validation
+- Use indexes for better performance
 
+## Contributing
 
+1. Create a new branch for your feature
+2. Follow the established code style
+3. Write meaningful commit messages
+4. Test your changes thoroughly
+5. Submit a pull request
 
-### 1. Update All Dependencies
-You can update all the dependencies in your project using npm-check-updates:
+## License
 
-Install npm-check-updates globally:
-
-```bash
- 
-npm install -g npm-check-updates
-```
-Check for outdated dependencies: Run this command in your project folder:
-
-```bash
-ncu
-```
-This will display a list of outdated packages and their latest versions.
-
-
-
-Upgrade all dependencies: To update the package.json with the latest versions, run:
-```bash
-ncu -u
-````
-
-Install updated dependencies: After updating package.json, install the updated packages:
-```bash
-npm install
-```
-
-### 2: Use --force or --legacy-peer-deps
-If you need React 19 and are okay with potential issues:
-```bash
-npm install --force
-```
-Or:
-```bash
-npm install --legacy-peer-deps
-```
-These options allow npm to bypass the dependency conflict. However, be cautious as this might cause runtime issues.
+[Add your license information here]
